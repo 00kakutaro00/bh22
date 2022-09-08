@@ -1,0 +1,14 @@
+
+$ git clone hogehoge
+$ cd hogehoge
+
+dockerをbuild
+$ docker build -t cwljplab .
+
+$ docker run --rm -it \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /tmp:/tmp \
+    -v ${PWD}:/workspace \
+    -p 8888:8888 --name tmp_cwl cwljplab jupyter lab --ip=0.0.0.0 --allow-root 
+
+
